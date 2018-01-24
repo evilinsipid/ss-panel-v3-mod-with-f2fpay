@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -8,12 +8,112 @@
 	<title>{$config["appName"]}</title>
 
 	
-	
 	<!-- css -->
 	<link href="/theme/material/css/base.min.css" rel="stylesheet">
 	<link href="/theme/material/css/project.min.css" rel="stylesheet">
 	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	
+
+ <style>
+    body {
+        background: #eee;
+    }
+    
+    @keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            transform: rotate(1080deg);
+        }
+        100% {
+            transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    @-webkit-keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            -webkit-transform: rotate(1080deg);
+        }
+        100% {
+            -webkit-transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    @-moz-keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            -moz-transform: rotate(1080deg);
+        }
+        100% {
+            -moz-transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    @-ms-keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            -ms-transform: rotate(1080deg);
+        }
+        100% {
+            -ms-transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    @-o-keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            -o-transform: rotate(1080deg);
+        }
+        100% {
+            -o-transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    .roll {
+        position: absolute;
+        opacity: 0;
+        animation: mysnow 5s;
+        -webkit-animation: mysnow 5s;
+        -moz-animation: mysnow 5s;
+        -ms-animation: mysnow 5s;
+        -o-animation: mysnow 5s;
+        height: 80px;
+    }
+    
+    .div {
+        position: fixed;
+    }
+    </style>
+
 
 	
 	<!-- favicon -->
@@ -185,8 +285,8 @@
 			font-weight: 300;
 			color: #fff;
 		}
-				
 	</style>
+  
 	
 	
 	
@@ -196,7 +296,7 @@
 		<ul class="nav nav-list pull-left">
 			<div>
 				<a data-toggle="menu" href="#ui_menu">
-					<span class="icon icon-lg text-white">menu</span>
+					<span class="icon icon-lg text-white">format_align_justify</span>
 				</a>
 			</div>
 		</ul>
@@ -206,20 +306,23 @@
 				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
 				{if $user->isLogin}
 					<span class="access-hide">{$user->user_name}</span>
-					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="{$user->gravatar}"></span>
+              	    <span class="icon icon-cd margin-right">account_circle</span>
+				<!--	<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="{$user->gravatar}"></span>  -->
 					</a>
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li>
 							<a class="padding-right-lg waves-attach" href="/user/"><span class="icon icon-lg margin-right">account_box</span>用户中心</a>
 						</li>
+                      
 						<li>
-							<a class="padding-right-lg waves-attach" href="/user/logout"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
+							<a class="padding-right-cd waves-attach" href="/user/logout"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
 						</li>
 					</ul>
 				{else}
 					<span class="access-hide">未登录</span>
-					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="/theme/material/images/users/avatar-001.jpg"></span>
-					</a>
+             		 <span class="icon icon-lg margin-right">account_circle</span>
+					<!-- <span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="/theme/material/images/users/avatar-001.jpg"></span>  -->
+					
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li>
 							<a class="padding-right-lg waves-attach" href="/auth/login"><span class="icon icon-lg margin-right">account_box</span>登录</a>
@@ -236,20 +339,21 @@
 	<nav aria-hidden="true" class="menu menu-left nav-drawer nav-drawer-md" id="ui_menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
-				<a class="menu-logo" href="/"><i class="icon icon-lg">person_pin_circle</i>&nbsp;用户面板</a>
+				<a class="menu-logo" href="/"><i class="icon icon-lg" >language</i>&nbsp;{$config["appName"]}</a>
 				<ul class="nav">
 					<li>
 						<a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
 						<ul class="menu-collapse collapse in" id="ui_menu_me">
 							<li>
 								<a href="/user">
-									<i class="icon icon-lg">recent_actors</i>&nbsp;首页
+									<i class="icon icon-lg">account_balance_wallet</i>&nbsp;用户中心
 								</a>
 							</li>
+                                
 							
 							<li>
 								<a href="/user/profile">
-									<i class="icon icon-lg">info</i>&nbsp;账户信息
+									<i class="icon icon-lg">account_box</i>&nbsp;账户信息
 								</a>
 							</li>
 							
@@ -259,26 +363,20 @@
 								</a>
 							</li>
 							
-							<li>
+
+                          <li> 
+								<a href="/user/ticket">
+									<i class="icon icon-lg">question_answer</i>&nbsp;工单系统
+								</a>
+							</li>
+                               <li>
 								<a href="/user/invite">
 									<i class="icon icon-lg">loyalty</i>&nbsp;邀请码
 								</a>
-							</li>
-							
-							<li>
-								<a href="/user/announcement">
-									<i class="icon icon-lg">announcement</i>&nbsp;查看公告
-								</a>
-							</li>
+							</li> 
 							
 							
-							{if $config['enable_donate']=='true'}
-							<li>
-								<a href="/user/donate">
-									<i class="icon icon-lg">attach_money</i>&nbsp;捐赠公示
-								</a>
-							</li>
-							{/if}
+				
 							
 							
 						</ul>
@@ -288,7 +386,7 @@
 						<ul class="menu-collapse collapse in" id="ui_menu_use">
 							<li>
 								<a href="/user/node">
-									<i class="icon icon-lg">router</i>&nbsp;节点列表
+									<i class="icon icon-lg">airplanemode_active</i>&nbsp;节点列表
 								</a>
 							</li>
 							
@@ -300,22 +398,25 @@
 							
 							<li>
 								<a href="/user/trafficlog">
-									<i class="icon icon-lg">traffic</i>&nbsp;流量记录
+									<i class="icon icon-lg">hourglass_empty</i>&nbsp;流量记录
 								</a>
 							</li>
 							
 							<li>
 								<a href="/user/lookingglass">
-									<i class="icon icon-lg">youtube_searched_for</i>&nbsp;观察窗
+									<i class="icon icon-lg">visibility</i>&nbsp;延迟检测
+								</a>
+								<a href="/user/announcement">
+									<i class="icon icon-lg">start</i>&nbsp;使用教程
 								</a>
 							</li>
 						</ul>
 
-						<a class="waves-attach" data-toggle="collapse" href="#ui_menu_detect">审计</a>
+					<!--	<a class="waves-attach" data-toggle="collapse" href="#ui_menu_detect">审计</a>
 						<ul class="menu-collapse collapse in" id="ui_menu_detect">
 							<li><a href="/user/detect"><i class="icon icon-lg">account_balance</i>&nbsp;审计规则</a></li>
 							<li><a href="/user/detect/log"><i class="icon icon-lg">assignment_late</i>&nbsp;审计记录</a></li>
-						</ul>
+						</ul> 
 						
 						<a class="waves-attach" data-toggle="collapse" href="#ui_menu_trade">帮助</a>
 						<ul class="menu-collapse collapse in" id="ui_menu_trade">
@@ -325,37 +426,41 @@
 									<i class="icon icon-lg">help</i>&nbsp;问答系统
 								</a>
 							</li>
-							{/if}
+							{/if}-->
 							
-							<li>
-								<a href="/user/ticket">
-									<i class="icon icon-lg">question_answer</i>&nbsp;工单系统
-								</a>
-							</li>
-						</ul>
+
+					
 
 						
-						<a class="waves-attach" data-toggle="collapse" href="#ui_menu_help">交易</a>
+						<a class="waves-attach" data-toggle="collapse" href="#ui_menu_help">商店</a>
 						<ul class="menu-collapse collapse in" id="ui_menu_help">
-						
-						
-							<li>
-								<a href="/user/shop">
-									<i class="icon icon-lg">shop</i>&nbsp;商店
-								</a>
-							</li>
-							
-							<li><a href="/user/bought"><i class="icon icon-lg">shopping_cart</i>&nbsp;购买记录</a></li>
-							
-							
-
-
-							<li>
+                          	<li>
 								<a href="/user/code">
 									<i class="icon icon-lg">code</i>&nbsp;充值
 								</a>
 							</li>
+						
+							<li>
+								<a href="/user/shop">
+									<i class="icon icon-lg">shop</i>&nbsp;套餐购买
+								</a>
+							</li>
+							
+							<li><a href="/user/bought"><i class="icon icon-lg">shopping_cart</i>&nbsp;购买记录</a></li>
+
+                           
+
+                         
+                          {if $config['enable_donate']=='true'}
+							<li>
+								<a href="/user/donate">
+									<i class="icon icon-lg">attach_money</i>&nbsp;捐赠公示
+								</a>
+							</li>
+							{/if} 
+                          
 						</ul>
+
 						
 						{if $user->isAdmin()}
 							<li>
@@ -364,8 +469,6 @@
 								</a>
 							</li>
 						{/if}
-
-
 						
 
 						
@@ -374,3 +477,6 @@
 			</div>
 		</div>
 	</nav>
+	<!--这里替换crisp.chat的代码，如您不需要请把script标签删除-->
+	<script type="text/javascript"> window.$crisp=[];window.CRISP_WEBSITE_ID="您的ID";(function(){ d=document;s=d.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})(); </script>
+	<!--这里放crisp.chat的代码，如您不需要请把script标签删除-->
