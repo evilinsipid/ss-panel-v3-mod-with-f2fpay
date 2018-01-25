@@ -4,11 +4,6 @@
 {include file='user/main.tpl'}
 
 
-
-
-
-
-
 	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
@@ -17,6 +12,7 @@
 		</div>
 		<div class="container">
 			<section class="content-inner margin-top-no">
+             
 
 
 					<div class="col-lg-6 col-md-6">
@@ -69,8 +65,12 @@
 								</div>
 							</div>
 						</div>
+                      
+                    
+                      
 
-						<div class="card margin-bottom-no">
+
+				<!--		<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
 									<div class="card-inner">
@@ -90,12 +90,12 @@
 									</div>
 									<div class="card-action">
 										<div class="card-action-btn pull-left">
-											<button class="btn btn-flat waves-attach" id="method-update" ><span class="icon">check</span>&nbsp;提交</button>
+											<button disabled="disabled" class="btn btn-flat waves-attach" id="method-update" ><span class="icon">check</span>&nbsp;提交</button>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>  -->
 
 						<div class="card margin-bottom-no">
 							<div class="card-main">
@@ -148,7 +148,7 @@
 
 
 
-						<div class="card margin-bottom-no">
+				<!--		<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
 									<div class="card-inner">
@@ -185,12 +185,12 @@
 
 									<div class="card-action">
 										<div class="card-action-btn pull-left">
-											<button class="btn btn-flat waves-attach" id="ssr-update" ><span class="icon">check</span>&nbsp;提交</button>
+											<button disabled="disabled" class="btn btn-flat waves-attach" id="ssr-update" ><span class="icon">check</span>&nbsp;提交</button>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>  
 
 
 
@@ -213,7 +213,7 @@
 											</select>
 										</div>
 
-									</div>
+									
 									<div class="card-action">
 										<div class="card-action-btn pull-left">
 											<button class="btn btn-flat waves-attach" id="theme-update" ><span class="icon">check</span>&nbsp;提交</button>
@@ -221,9 +221,9 @@
 									</div>
 								</div>
 							</div>
-						</div>
-
-					</div>
+						</div> 
+</div>-->
+					</div>  
 
 
 					<div class="col-lg-6 col-md-6">
@@ -243,9 +243,9 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> 
 
-
+	
 
 						<div class="card margin-bottom-no">
 							<div class="card-main">
@@ -260,7 +260,6 @@
 												<option value="0">不发送</option>
 											</select>
 										</div>
-
 									</div>
 									<div class="card-action">
 										<div class="card-action-btn pull-left">
@@ -273,7 +272,7 @@
 
 
 
-						<div class="card margin-bottom-no">
+					<!--	<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
 									<div class="card-inner">
@@ -316,7 +315,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>    -->
 
 						<div class="card margin-bottom-no">
 							<div class="card-main">
@@ -335,7 +334,7 @@
 							</div>
 						</div>
 
-						<div class="card margin-bottom-no">
+				<!--		<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
 									<div class="card-inner">
@@ -356,7 +355,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						{if $config['enable_telegram'] == 'true'}
 						<div class="card margin-bottom-no">
@@ -429,8 +428,6 @@
         })
     })
 </script>
-
-
 <script>
     $(document).ready(function () {
         $("#setpac").click(function () {
@@ -677,6 +674,7 @@
         })
     })
 </script>
+
 
 <script>
     $(document).ready(function () {
