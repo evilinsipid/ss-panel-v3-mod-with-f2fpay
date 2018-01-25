@@ -10,8 +10,6 @@
 
 
 
-
-
 	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
@@ -25,35 +23,36 @@
 					<div class="card">
 						<div class="card-main">
 							<div class="card-inner">
-								<p>系统中所有商品的列表。您购买等级类的商品时有效期会从当前时间开始计算。</p>
+								<p>所有商品可以叠加购买，VIP时间会叠加</p>
 								<p>当前余额：{$user->money} 元</p>
 							</div>
 						</div>
 					</div>
+                  
+                  
 					
 					<div class="table-responsive">
 						{$shops->render()}
 						<table class="table ">
                             <tr>
-								<th>操作</th>
-                                <th>ID</th>
-                                <th>名称</th>
+								
+                            <!--    <th>ID</th>    -->
+                                <th>套餐</th>
 								<th>价格</th>
-								<th>内容</th>
-                                <th>自动续费天数</th>
-								<th>续费时重置流量</th>
+								<th>套餐详情</th>
+                           <!--       <th>自动续费天数</th>
+								<th>续费时重置流量</th>     -->
+                              <th>操作</th>
                                 
                             </tr>
                             {foreach $shops as $shop}
                             <tr>
-								<td>
-                                    <a class="btn btn-brand-accent" href="javascript:void(0);" onClick="buy('{$shop->id}',{$shop->auto_renew},{$shop->auto_reset_bandwidth})">购买</a>
-                                </td>
-                                <td>#{$shop->id}</td>
+								
+                            <!--     <td>#{$shop->id}</td>    -->
                                 <td>{$shop->name}</td>
 								<td>{$shop->price} 元</td>
                                 <td>{$shop->content()}</td>
-								{if $shop->auto_renew==0}
+							  <!--	{if $shop->auto_renew==0}
                                 <td>不能自动续费</td>
 								{else}
 								<td>可选 在 {$shop->auto_renew} 天后自动续费</td>
@@ -63,8 +62,10 @@
                                 <td>不自动重置</td>
 								{else}
 								<td>自动重置</td>
-								{/if}
-                                
+								{/if}  -->
+                                <td>
+                                    <a class="btn btn-brand-accent" href="javascript:void(0);" onClick="buy('{$shop->id}',{$shop->auto_renew},{$shop->auto_reset_bandwidth})">购买</a>
+                                </td>
                             </tr>
                             {/foreach}
                         </table>
