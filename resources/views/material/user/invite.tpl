@@ -3,17 +3,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 {include file='user/main.tpl'}
 
 
@@ -38,10 +27,7 @@
 								<div class="card-inner">
 									<div class="card-inner">
 										<p class="card-heading">注意！</p>
-
 										<p>邀请码请给认识的需要的人。</p>
-
-										<p>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。</p>
 									</div>
 									
 								</div>
@@ -55,19 +41,15 @@
 								<div class="card-inner">
 									<div class="card-inner">
 										<p class="card-heading">说明</p>
-
-										<p>邀请码暂时无法购买，请珍惜。</p>
-
-										<p>公共页面不定期发放邀请码，如果用完邀请码可以关注公共邀请。</p>
-										
-										<p>您每拉一位用户注册，当 TA 充值时您就会获得 TA 充值金额的 <code>{$config["code_payback"]} %</code> 的提成。</p>
+										<p>当您的余额达到100可发工单请求提现。</p>
+										<p>您每拉一位用户注册，对方充值时您就会获得对方充值金额的 <code>{$config["code_payback"]} %</code> 的提成。</p>
 									</div>
 									
 								</div>
 							</div>
 						</div>
 					</div>
-					
+					 {if $user->class!=0}
 					<div class="col-lg-12 col-md-12">
 						<div class="card margin-bottom-no">
 							<div class="card-main">
@@ -89,8 +71,8 @@
 							</div>
 						</div>
 					</div>
-					
-					<div class="col-lg-12 col-md-12">
+                  
+                  <div class="col-lg-12 col-md-12">
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								
@@ -102,7 +84,7 @@
 												<table class="table">
 													<thead>
 													<tr>
-														<th>###</th>
+													<!--	<th>###</th>   -->
 														<th>邀请码(点右键复制链接)</th>
 														<th>状态</th>
 													</tr>
@@ -110,7 +92,7 @@
 													<tbody>
 													{foreach $codes as $code}
 														<tr>
-															<td><b>{$code->id}</b></td>
+															<!-- <td><b>{$code->id}</b></td>  -->
 															<td><a href="/auth/register?code={$code->code}" target="_blank">{$code->code}</a>
 															</td>
 															<td>可用</td>
@@ -126,7 +108,26 @@
 							</div>
 						</div>
 					</div>
+                   {else}
+                  
+                  <div class="col-lg-12 col-md-12">
+						<div class="card margin-bottom-no">
+							<div class="card-main">
+								<div class="card-inner">
+                                  <p class="card-heading">生成邀请码</p>
+								<h3>{$user->user_name}，您不是VIP暂时无法生成邀请码，<a href="/user/shop">成为VIP请点击这里</a></h3>
+								</div>
+							</div>
+						</div>
+					</div>
 					
+				
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					{/if}
 					
 					
 					{include file='dialog.tpl'}
@@ -162,4 +163,3 @@
         })
     })
 </script>
-
