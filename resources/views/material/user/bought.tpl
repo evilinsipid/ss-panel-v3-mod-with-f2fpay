@@ -31,21 +31,20 @@
 						{$shops->render()}
 						<table class="table ">
                             <tr>
-								<th>操作</th>
-                                <th>ID</th>
+								
+                             <!--   <th>ID</th> -->
                                 <th>商品名称</th>
 								<th>内容</th>
 								<th>价格</th>
                                 <th>续费时间</th>
 								<th>续费时重置流量</th>
+                                <th>操作</th>
                                 
                             </tr>
                             {foreach $shops as $shop}
                             <tr>
-								<td>
-                                    <a class="btn btn-brand" {if $shop->renew==0}disabled{else} href="javascript:void(0);" onClick="delete_modal_show('{$shop->id}')"{/if}>退订</a>
-                                </td>
-                                <td>#{$shop->id}</td>
+								
+                          <!--       <td>#{$shop->id}</td> -->
                                 <td>{$shop->shop()->name}</td>
 								<td>{$shop->shop()->content()}</td>
 								<td>{$shop->price} 元</td>
@@ -60,6 +59,9 @@
 								{else}
 								<td>自动重置</td>
 								{/if}
+                              <td>
+                                    <a class="btn btn-brand" {if $shop->renew==0}disabled{else} href="javascript:void(0);" onClick="delete_modal_show('{$shop->id}')"{/if}>退订</a>
+                                </td>
                                 
                             </tr>
                             {/foreach}
@@ -142,7 +144,6 @@ $(document).ready(function(){
 })
 	
 </script>
-
 
 
 
