@@ -12,7 +12,7 @@
 	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">中转规则管理</h1>
+				<h1 class="content-heading">中转规则</h1>
 			</div>
 		</div>
 		<div class="container">
@@ -22,10 +22,10 @@
 					<div class="card">
 						<div class="card-main">
 							<div class="card-inner">
-								<p>系统中您所有的中转规则。</p>
-								<p>在这里，您可以设置您的中转规则，从而将数据从一个服务器重定向到另外一个服务器。</p>
+								<p>中转规则一般由中国中转至其他国外节点</p>
+								<p>请设置端口号为您自己的端口</p>
 								<p>优先级越大，代表其在多个符合条件的规则并存时会被优先采用，当优先级一致时，先添加的规则会被采用。</p>
-								<p>对某个节点不设置中转时，这个节点就可以当作一个普通的节点来做代理使用。</p>
+								<p>节点不设置中转时，这个节点就可以当作一个普通的节点来做代理使用。</p>
 							</div>
 						</div>
 					</div>
@@ -50,21 +50,19 @@
 												{$rules->render()}
 												<table class="table">
 											    <tr>
-													<th>操作</th>
-													<th>ID</th>
+													
+												<!--	<th>ID</th>   -->
 													<th>起源节点</th>
 													<th>目标节点</th>
 													<th>端口</th>
 													<th>优先级</th>
+                                                  <th>操作</th>
 
 													</tr>
 													{foreach $rules as $rule}
 														<tr>
-														<td>
-															<a class="btn btn-brand" {if $rule->user_id == 0}disabled{else}href="/user/relay/{$rule->id}/edit"{/if}>编辑</a>
-															<a class="btn btn-brand-accent" id="delete" value="{$rule->id}" {if $rule->user_id == 0}disabled{else}href="javascript:void(0);" onClick="delete_modal_show('{$rule->id}')"{/if}>删除</a>
-														</td>
-														<td>#{$rule->id}</td>
+														
+												<!--		<td>#{$rule->id}</td>  -->
 														{if $rule->source_node_id == 0}
 															<td>所有节点</td>
 														{else}
@@ -77,6 +75,10 @@
 														{/if}
 														<td>{if $rule->port == 0}所有端口{else}{$rule->port}{/if}</td>
 														<td>{$rule->priority}</td>
+                                                          <td>
+															<a class="btn btn-brand" {if $rule->user_id == 0}disabled{else}href="/user/relay/{$rule->id}/edit"{/if}>编辑</a>
+															<a class="btn btn-brand-accent" id="delete" value="{$rule->id}" {if $rule->user_id == 0}disabled{else}href="javascript:void(0);" onClick="delete_modal_show('{$rule->id}')"{/if}>删除</a>
+														</td>
 												        </tr>
 												    {/foreach}
 												</table>
