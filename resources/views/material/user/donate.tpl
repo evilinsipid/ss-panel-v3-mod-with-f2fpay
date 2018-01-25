@@ -30,11 +30,11 @@
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>您可以在<a href="/user/code">充值界面</a>进行充值，这样就等同于捐赠了。</p>
-									
+									<p>感谢各位捐赠来支撑服务器的日常支出！您可以在<a href="/user/code">充值界面</a>进行充值，这样就等同于捐赠了。</p>
+									{if $user->isAdmin()}
 									<p>总收入：{$total_in} 元</p>
-									
-									<p>总支出：{$total_out} 元</p>
+									{/if}
+								
 								</div>
 							</div>
 						</div>
@@ -91,7 +91,7 @@
 															{if $code->user() != null && $code->user()->is_hide == 0}
 															<td>{$code->user()->user_name}</td>
 															{else}
-															<td>已注销或用户要求匿名</td>
+															<td>用户匿名或已注销</td>
 															{/if}
 															{if $code->type == -1}
 															<td>充值捐赠</td>
