@@ -1,6 +1,7 @@
 {include file='header.tpl'}
 
 
+
 <main class="content">
 		<div class="container">
 			<div class="row">
@@ -15,9 +16,7 @@
 								</div>
 								<div class="card-inner">
 									<p class="text-center">
-										<span class="avatar avatar-inline avatar-lg">
-											<img alt="Login" src="/theme/material/images/users/avatar-001.jpg">
-										</span>
+
 									</p>
 									
 										
@@ -46,7 +45,7 @@
 						</div>
 						<div class="clearfix">
 							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="/auth/login">登录</a></p>
-							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="/auth/register">注册个帐号</a></p>
+							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="/auth/register">注册账号</a></p>
 						</div>
 						
 						
@@ -69,7 +68,7 @@
     $(document).ready(function(){
         function reset(){
 			$("#result").modal();
-            $("#msg").html("正在发送，请稍候。。。");
+            $("#msg").html("sending, please wait....");
             $.ajax({
                 type:"POST",
                 url:"/password/reset",
