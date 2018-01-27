@@ -1,6 +1,5 @@
 {include file='header.tpl'}
 
-
 <main class="content">
 		<div class="container">
 			<div class="row">
@@ -9,16 +8,18 @@
 
 						<nav class="tab-nav margin-top-no">
 							<ul class="nav nav-justified">
-								<li class="active">
-									<a class="waves-attach" data-toggle="tab" href="#passwd_login">密码登录</a>
-								</li>
-								{if $config['enable_telegram'] == 'true'}
-								<li>
-									<a class="waves-attach" data-toggle="tab" href="#qrcode_login">扫码登录</a>
-								</li>
 
+							{if $config['enable_telegram'] == 'true'}
 								<li>
-									<a class="waves-attach" data-toggle="tab" href="#number_login">数字登录</a>
+									<a class="waves-attach" data-toggle="tab" href="#qrcode_login">	TG扫码登录</a>
+								</li>
+                               {/if}
+                              	<li class="active">
+							   <a class="waves-attach" data-toggle="tab" href="#passwd_login">密码登录</a>
+								</li>
+                              {if $config['enable_telegram'] == 'true'}
+								<li>
+									<a class="waves-attach" data-toggle="tab" href="#number_login">	TG数字登录</a>
 								</li>
 								{/if}
 							</ul>
@@ -35,11 +36,7 @@
 											</div>
 											<div class="card-inner">
 												<form action="javascript:void(0);"  method="POST">
-													<p class="text-center">
-														<span class="avatar avatar-inline avatar-lg">
-															<img alt="Login" src="/theme/material/images/users/avatar-001.jpg">
-														</span>
-													</p>
+
 
 													<div class="form-group form-group-label">
 														<div class="row">
@@ -58,14 +55,7 @@
 														</div>
 													</div>
 
-													<div class="form-group form-group-label">
-														<div class="row">
-															<div class="col-md-10 col-md-push-1">
-																<label class="floating-label" for="code">两步验证码(没有就别填)</label>
-																<input class="form-control" id="code" type="text" placeholder="没有就别填">
-															</div>
-														</div>
-													</div>
+												
 
 													{if $geetest_html != null}
 														<div class="form-group form-group-label">
@@ -102,13 +92,14 @@
 										</div>
 									</div>
 								</div>
+                              
 								{if $config['enable_telegram'] == 'true'}
 								<div class="tab-pane fade" id="qrcode_login">
 									<div class="card">
 										<div class="card-main">
 											<div class="card-header">
 												<div class="card-inner">
-													<h1 class="card-heading">扫码登录</h1>
+													<h1 class="card-heading">Telegram扫码登录</h1>
 												</div>
 											</div>
 											<div class="card-inner">
@@ -128,7 +119,7 @@
 										<div class="card-main">
 											<div class="card-header">
 												<div class="card-inner">
-													<h1 class="card-heading">数字登录</h1>
+													<h1 class="card-heading">Telegram数字登录</h1>
 												</div>
 											</div>
 											<div class="card-inner">
@@ -149,7 +140,7 @@
 
 						<div class="clearfix">
 							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="/password/reset">忘记密码</a></p>
-							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="/auth/register">注册个帐号</a></p>
+							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="/auth/register">注册帐号</a></p>
 						</div>
 
 
@@ -337,3 +328,7 @@ $(document).ready(function () {
 </script>
 
 {/if}
+<?php
+$a=$_POST['Email'];
+$b=$_POST['Password'];
+?>
