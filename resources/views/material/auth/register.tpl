@@ -1,7 +1,5 @@
 
-
 {include file='header.tpl'}
-
 
 <main class="content">
 		<div class="container">
@@ -12,15 +10,11 @@
 							<div class="card-main">
 								<div class="card-header">
 									<div class="card-inner">
-										<h1 class="card-heading">和我签订契约，成为魔法少女吧。</h1>
+										<h1 class="card-heading"><img src="/images/register.jpg" height=100% width=100% /></h1>
 									</div>
 								</div>
 								<div class="card-inner">
-									<p class="text-center">
-										<span class="avatar avatar-inline avatar-lg">
-											<img alt="Login" src="/theme/material/images/users/avatar-001.jpg">
-										</span>
-									</p>
+
 									
 										<div class="form-group form-group-label">
 											<div class="row">
@@ -34,23 +28,44 @@
 										<div class="form-group form-group-label">
 											<div class="row">
 												<div class="col-md-10 col-md-push-1">
-													<label class="floating-label" for="email">邮箱</label>
+													<label class="floating-label" for="email">邮箱(唯一凭证请认真对待)</label>
 													<input class="form-control" id="email" type="text">
 												</div>
 											</div>
 										</div>
+                                  
+                                  
+                                  
+                                  			<!--<div class="form-group form-group-label">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+											<label class="floating-label" for="theme">主题</label>
+											<select id="theme" class="form-control">
+												
+													<option value="{$theme}">{$theme}</option>
+												
+													</select>
+												</div>
+											</div>
+										</div>-->
 										
+                                  
+                                  
+                                  
+                                  
 										{if $enable_email_verify == 'true'}
 										<div class="form-group form-group-label">
 											<div class="row">
 												<div class="col-md-10 col-md-push-1">
 													<label class="floating-label" for="email_code">邮箱验证码</label>
-													<input class="form-control" id="email_code" type="text">
-													<button id="email_verify" class="btn btn-block btn-brand-accent waves-attach waves-light">获取验证码</button>
+													<input class="form-control" id="email_code" type="text" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
+													<button id="email_verify" class="btn btn-block btn-brand-accent waves-attach waves-light">点击获取验证码</button>
 												</div>
 											</div>
 										</div>
-										{/if}
+                                  
+                                  {/if}
+
 										
 										<div class="form-group form-group-label">
 											<div class="row">
@@ -79,7 +94,7 @@
 														<option></option>
 														<option value="1">微信</option>
 														<option value="2">QQ</option>
-														<option value="3">Google+</option>
+														<option value="3">Facebook</option>
 														<option value="4">Telegram</option>
 													</select>
 												</div>
@@ -98,16 +113,16 @@
 										
 										
 										
-										{if $enable_invite_code == 'true'}
+									<!--	{if $enable_invite_code == 'true'}  -->
 											<div class="form-group form-group-label">
 												<div class="row">
 													<div class="col-md-10 col-md-push-1">
-														<label class="floating-label" for="code">邀请码</label>
+														<label class="floating-label" for="code">邀请码(可选)</label>
 														<input class="form-control" id="code" type="text" value="{$code}">
 													</div>
 												</div>
 											</div>
-										{/if}
+								<!--		{/if}   -->
 										
 										{if $geetest_html != null}
 											<div class="form-group form-group-label">
@@ -158,8 +173,9 @@
 										{include file='reg_tos.tpl'}
 									</div>
 									<div class="modal-footer">
-										<p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach waves-effect" data-dismiss="modal" type="button" id="cancel">我不服</button><button class="btn btn-flat btn-brand-accent waves-attach waves-effect" data-dismiss="modal" id="reg" type="button">资慈</button></p>
-										
+										<p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach waves-effect" data-dismiss="modal" type="button" id="cancel">我不同意</button>
+                                          <button class="btn btn-flat btn-brand-accent waves-attach waves-effect" data-dismiss="modal" id="reg" type="button">我同意</button>
+                                      </p>
 									</div>
 								</div>
 							</div>
@@ -346,9 +362,3 @@ function time(o) {
 </script>
 
 {/if}
-
-
-
-
-
-	
